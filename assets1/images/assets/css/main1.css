@@ -1,0 +1,59 @@
+/*----- Notifications----- */
+
+.notification {
+    border: 4px solid;
+    z-index: 5000;
+    font-size: 150%;
+    padding: 10px;
+    border-radius: 15px;
+    display: none;
+}
+.notification > div {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: 0px 1px 1px #fff;
+}
+.notification.attention {
+    background: #fffbcc;
+    border-color: #e6db55;
+    color: #666452;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-image: url('../img/warning_icon.png');
+}
+.notification.information {
+    background: #dbe3ff;
+    border-color: #a2b4ee;
+    color: #585b66;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-image: url('../img/info_icon.png');
+}
+.notification.success {
+    background: #d5ffce;
+    border-color: #9adf8f;
+    color: #556652;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-image: url('../img/valid_icon.png');
+}
+.notification.error {
+    background-color: #ffcece;
+    border-color: #df8f8f;
+    color: #665252;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-image: url('../img/error_icon.png');
+}
+.select2-search::after {
+    content: "";
+}
+
+textarea[disabled] {
+    color: #848484 !important;
+    background-color: #eee !important;
+}
+
+.datepicker {position: relative; z-index:100!important;}

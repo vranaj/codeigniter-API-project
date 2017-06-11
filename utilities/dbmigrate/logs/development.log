@@ -1,0 +1,379 @@
+Dec 05 13:01:34 [info] SELECT version FROM `schema_info`
+Dec 05 13:01:54 [info] SELECT version FROM `schema_info`
+Dec 05 13:01:54 [info] CREATE TABLE `item_configuration` ( `id` int(11) NOT NULL AUTO_INCREMENT, `item_id` int(11) DEFAULT NULL, `total_physical_ram` varchar(15) DEFAULT NULL, `user_name` varchar(50) DEFAULT NULL, `computer_name` varchar(50) DEFAULT NULL, `host_name` varchar(50) DEFAULT NULL, `ip_address` varchar(15) DEFAULT NULL, `mac_address` varchar(255) DEFAULT NULL, `os_name` varchar(25) DEFAULT NULL, `os_version` varchar(25) DEFAULT NULL, `processor_count` varchar(5) DEFAULT NULL, PRIMARY KEY (`id`), KEY `item_id` (`item_id`)) ENGINE=InnoDB DEFAULT CHARSET=latin1
+Dec 05 13:01:54 [info] UPDATE `schema_info` SET version = 5
+Dec 05 13:02:24 [info] SELECT version FROM `schema_info`
+Dec 05 13:02:24 [info] DROP TABLE `item_configuration`
+Dec 05 13:02:24 [info] UPDATE `schema_info` SET version = 4
+Dec 05 13:02:36 [info] SELECT version FROM `schema_info`
+Dec 05 13:02:36 [info] CREATE TABLE `item_configuration` ( `id` int(11) NOT NULL AUTO_INCREMENT, `item_id` int(11) DEFAULT NULL, `total_physical_ram` varchar(15) DEFAULT NULL, `user_name` varchar(50) DEFAULT NULL, `computer_name` varchar(50) DEFAULT NULL, `host_name` varchar(50) DEFAULT NULL, `ip_address` varchar(15) DEFAULT NULL, `mac_address` varchar(255) DEFAULT NULL, `os_name` varchar(25) DEFAULT NULL, `os_version` varchar(25) DEFAULT NULL, `processor_count` varchar(5) DEFAULT NULL, PRIMARY KEY (`id`), KEY `item_id` (`item_id`)) ENGINE=InnoDB DEFAULT CHARSET=latin1
+Dec 05 13:02:36 [info] UPDATE `schema_info` SET version = 5
+Jan 08 07:17:41 [info] SELECT version FROM `schema_info`
+Jan 08 07:17:41 [info] ALTER TABLE `item_inventory` ADD COLUMN `salvage_remarks` text NULL AFTER `is_salvage`
+Jan 08 07:17:42 [info] UPDATE `schema_info` SET version = 6
+Apr 08 03:49:22 [info] SELECT version FROM `schema_info`
+Apr 08 03:49:22 [info] CREATE TABLE `regional_managers` ( `id` int(11) NOT NULL AUTO_INCREMENT, `branch_id` int(11) DEFAULT NULL, `manager_name` varchar(255) DEFAULT NULL, `user_id` varchar(10) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=latin1
+Apr 08 03:49:22 [info] UPDATE `schema_info` SET version = 7
+Apr 08 04:19:41 [info] SELECT version FROM `schema_info`
+Apr 08 04:19:57 [info] SELECT version FROM `schema_info`
+Apr 08 04:19:57 [info] DROP TABLE `regional_managers`
+Apr 08 04:19:57 [info] UPDATE `schema_info` SET version = 6
+Apr 08 04:20:08 [info] SELECT version FROM `schema_info`
+Apr 08 04:20:08 [info] CREATE TABLE `regional_managers` ( `id` int(11) NOT NULL AUTO_INCREMENT, `department_id` int(11) DEFAULT NULL, `manager_name` varchar(255) DEFAULT NULL, `user_id` varchar(10) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=latin1
+Apr 08 04:20:08 [info] UPDATE `schema_info` SET version = 7
+May 17 10:53:49 [info] SELECT version FROM `schema_info`
+May 17 10:53:49 [info] CREATE TABLE `service_payments` ( `service_id` int(11) NOT NULL AUTO_INCREMENT, `budget_id` int(11) DEFAULT NULL, `item_id` int(11) DEFAULT NULL, `vendor_id` int(11) DEFAULT NULL, `payment_date` date DEFAULT NULL, `amount` double DEFAULT NULL, `remarks` varchar(255) DEFAULT NULL, `status` tinyint(4) DEFAULT '1', PRIMARY KEY (`service_id`)) ENGINE=InnoDB DEFAULT CHARSET=latin1
+May 17 10:53:49 [info] UPDATE `schema_info` SET version = 8
+May 17 11:15:04 [info] SELECT version FROM `schema_info`
+May 17 11:15:04 [info] DROP TABLE `service_payments`
+May 17 11:15:04 [info] UPDATE `schema_info` SET version = 7
+May 17 11:15:40 [info] SELECT version FROM `schema_info`
+May 17 11:15:40 [info] CREATE TABLE `service_payments` ( `service_id` int(11) NOT NULL AUTO_INCREMENT, `item_id` int(11) DEFAULT NULL, `vendor_id` int(11) DEFAULT NULL, `payment_date` date DEFAULT NULL, `amount` double DEFAULT NULL, `remarks` varchar(255) DEFAULT NULL, `status` tinyint(4) DEFAULT '1', PRIMARY KEY (`service_id`)) ENGINE=InnoDB DEFAULT CHARSET=latin1
+May 17 11:15:41 [info] UPDATE `schema_info` SET version = 8
+May 17 18:06:33 [info] SELECT version FROM `schema_info`
+May 17 18:06:33 [info] DROP TABLE `service_payments`
+May 17 18:06:33 [info] UPDATE `schema_info` SET version = 7
+May 17 18:10:19 [info] SELECT version FROM `schema_info`
+May 17 18:10:19 [info] CREATE TABLE `service_payments` ( `service_id` int(11) NOT NULL AUTO_INCREMENT, `item_id` int(11) DEFAULT NULL, `vendor_id` int(11) DEFAULT NULL, `payment_date` date DEFAULT NULL, `amount` double DEFAULT NULL, `remarks` varchar(255) DEFAULT NULL, `status` tinyint(4) DEFAULT '1', PRIMARY KEY (`service_id`)) ENGINE=InnoDB DEFAULT CHARSET=latin1
+May 17 18:10:19 [info] ALTER TABLE `item_inventory` ADD COLUMN `accepted_by` varchar(20) NULL AFTER `onloan_returned_by`
+May 17 18:10:20 [info] ALTER TABLE `item_inventory` ADD COLUMN `accepted_timestamp` datetime NULL AFTER `accepted_by`
+May 17 18:10:22 [info] UPDATE `schema_info` SET version = 8
+May 17 18:13:42 [info] SELECT version FROM `schema_info`
+May 17 18:13:42 [info] DROP TABLE `service_payments`
+May 17 18:13:42 [info] ALTER TABLE `item_inventory` DROP COLUMN `accepted_by`
+May 17 18:13:43 [info] ALTER TABLE `item_inventory` DROP COLUMN `accepted_timestamp`
+May 17 18:13:44 [info] UPDATE `schema_info` SET version = 7
+May 17 18:15:37 [info] SELECT version FROM `schema_info`
+May 17 18:15:37 [info] CREATE TABLE `service_payments` ( `service_id` int(11) NOT NULL AUTO_INCREMENT, `item_id` int(11) DEFAULT NULL, `vendor_id` int(11) DEFAULT NULL, `payment_date` date DEFAULT NULL, `amount` double DEFAULT NULL, `remarks` varchar(255) DEFAULT NULL, `status` tinyint(4) DEFAULT '1', PRIMARY KEY (`service_id`)) ENGINE=InnoDB DEFAULT CHARSET=latin1
+May 17 18:15:38 [info] ALTER TABLE `item_inventory` ADD COLUMN `accepted_by` varchar(20) NULL AFTER `onloan_returned_by`
+May 17 18:15:39 [info] ALTER TABLE `item_inventory` ADD COLUMN `accepted_timestamp` datetime NULL AFTER `accepted_by`
+May 17 18:15:40 [info] UPDATE `item_inventory` SET accepted_by='N/A'
+May 17 18:15:41 [info] UPDATE `schema_info` SET version = 8
+May 19 15:55:24 [info] SELECT version FROM `schema_info`
+May 19 15:55:24 [info] DROP TABLE `service_payments`
+May 19 15:55:24 [info] ALTER TABLE `item_inventory` DROP COLUMN `accepted_by`
+May 19 15:55:26 [info] ALTER TABLE `item_inventory` DROP COLUMN `accepted_timestamp`
+May 19 15:55:27 [info] UPDATE `schema_info` SET version = 7
+May 19 15:56:20 [info] SELECT version FROM `schema_info`
+May 19 15:56:20 [info] CREATE TABLE `service_payments` ( `service_id` int(11) NOT NULL AUTO_INCREMENT, `item_id` int(11) DEFAULT NULL, `vendor_id` int(11) DEFAULT NULL, `payment_date` date DEFAULT NULL, `amount` double DEFAULT NULL, `remarks` varchar(255) DEFAULT NULL, `status` tinyint(4) DEFAULT '1', PRIMARY KEY (`service_id`)) ENGINE=InnoDB DEFAULT CHARSET=latin1
+May 19 15:56:20 [info] UPDATE `schema_info` SET version = 8
+May 24 18:38:19 [info] SELECT version FROM `schema_info`
+May 24 18:38:19 [info] ALTER TABLE `gatepass_header` ADD COLUMN `person_removing`  varchar(100) NULL AFTER `items_array`
+May 24 18:38:19 [info] ALTER TABLE `gatepass_header` ADD COLUMN `date_of_removal`  date NULL AFTER `person_removing`
+May 24 18:38:19 [info] UPDATE `schema_info` SET version = 9
+Jul 02 06:30:28 [info] SELECT version FROM `schema_info`
+Jul 02 06:30:28 [info] CREATE TABLE `flagged_items` (`id` int(11) NOT NULL AUTO_INCREMENT, `flaged_by` varchar(11) DEFAULT NULL, `item_id` int(11) DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+Jul 02 06:30:28 [info] ALTER TABLE `flagged_items` ADD INDEX `flaged_by` (`flaged_by`)
+Jul 02 06:30:28 [info] ALTER TABLE `flagged_items` ADD INDEX `item_id` (`ticket_id`)
+Jul 02 06:31:36 [info] SELECT version FROM `schema_info`
+Jul 02 06:31:36 [info] CREATE TABLE `flagged_items` (`id` int(11) NOT NULL AUTO_INCREMENT, `flaged_by` varchar(11) DEFAULT NULL, `item_id` int(11) DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+Jul 02 06:31:36 [info] ALTER TABLE `flagged_items` ADD INDEX `flaged_by` (`flaged_by`)
+Jul 02 06:31:36 [info] ALTER TABLE `flagged_items` ADD INDEX `item_id` (`item_id`)
+Jul 02 06:31:36 [info] UPDATE `schema_info` SET version = 10
+Jul 02 06:31:49 [info] SELECT version FROM `schema_info`
+Jul 02 06:31:49 [info] DROP TABLE `flagged_items`
+Jul 02 06:31:50 [info] UPDATE `schema_info` SET version = 10
+Jul 02 06:31:50 [info] ALTER TABLE `gatepass_header` DROP COLUMN `person_removing`
+Jul 02 06:31:50 [info] ALTER TABLE `gatepass_header` DROP COLUMN `date_of_removal`
+Jul 02 06:31:50 [info] UPDATE `schema_info` SET version = 8
+Jul 02 06:32:00 [info] SELECT version FROM `schema_info`
+Jul 02 06:32:00 [info] ALTER TABLE `gatepass_header` ADD COLUMN `person_removing`  varchar(100) NULL AFTER `items_array`
+Jul 02 06:32:00 [info] ALTER TABLE `gatepass_header` ADD COLUMN `date_of_removal`  date NULL AFTER `person_removing`
+Jul 02 06:32:01 [info] UPDATE `schema_info` SET version = 9
+Jul 02 06:32:01 [info] CREATE TABLE `flagged_items` (`id` int(11) NOT NULL AUTO_INCREMENT, `flaged_by` varchar(11) DEFAULT NULL, `item_id` int(11) DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+Jul 02 06:32:01 [info] ALTER TABLE `flagged_items` ADD INDEX `flaged_by` (`flaged_by`)
+Jul 02 06:32:01 [info] ALTER TABLE `flagged_items` ADD INDEX `item_id` (`item_id`)
+Jul 02 06:32:01 [info] UPDATE `schema_info` SET version = 10
+Jul 02 06:32:13 [info] SELECT version FROM `schema_info`
+Jul 02 06:32:13 [info] DROP TABLE `flagged_items`
+Jul 02 06:32:13 [info] UPDATE `schema_info` SET version = 9
+Jul 02 06:32:24 [info] SELECT version FROM `schema_info`
+Jul 02 06:32:24 [info] CREATE TABLE `flagged_items` (`id` int(11) NOT NULL AUTO_INCREMENT, `flaged_by` varchar(11) DEFAULT NULL, `item_id` int(11) DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+Jul 02 06:32:24 [info] ALTER TABLE `flagged_items` ADD INDEX `flaged_by` (`flaged_by`)
+Jul 02 06:32:25 [info] ALTER TABLE `flagged_items` ADD INDEX `item_id` (`item_id`)
+Jul 02 06:32:25 [info] UPDATE `schema_info` SET version = 10
+Aug 09 09:28:08 [info] SELECT version FROM `schema_info`
+Aug 09 09:28:08 [info] CREATE TABLE `flagged_items` (`id` int(11) NOT NULL AUTO_INCREMENT, `flaged_by` varchar(11) DEFAULT NULL, `item_id` int(11) DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+Aug 09 09:30:09 [info] SELECT version FROM `schema_info`
+Aug 09 09:30:09 [info] CREATE TABLE `company_codes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `company_code` varchar(50) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+Aug 09 09:30:09 [info] INSERT INTO `company_codes` VALUES ('1', 'Life')
+Aug 09 09:30:09 [info] INSERT INTO `company_codes` VALUES ('2', 'General')
+Aug 09 09:30:09 [info] INSERT INTO `company_codes` VALUES ('3', 'Common')
+Aug 09 09:30:09 [info] CREATE TABLE `asset_classes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `asset_class` varchar(50) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1
+Aug 09 09:30:09 [info] INSERT INTO `asset_classes` VALUES ('1', 'Computer Hardware - Computer')
+Aug 09 09:30:09 [info] INSERT INTO `asset_classes` VALUES ('2', 'Computer Hardware - Server')
+Aug 09 09:30:09 [info] INSERT INTO `asset_classes` VALUES ('3', 'Computer Software - Computer')
+Aug 09 09:30:09 [info] INSERT INTO `asset_classes` VALUES ('4', 'Computer Software - Server ')
+Aug 09 09:30:09 [info] ALTER TABLE `item_inventory` ADD COLUMN `asset_class`  int NULL AFTER `additional_information`
+Aug 09 09:30:10 [info] ALTER TABLE `item_inventory` ADD COLUMN `company_code`  int NULL AFTER `asset_class`
+Aug 09 09:30:11 [info] UPDATE `schema_info` SET version = 11
+Aug 09 09:31:21 [info] SELECT version FROM `schema_info`
+Aug 09 09:31:21 [info] DROP TABLE `company_codes`
+Aug 09 09:31:21 [info] DROP TABLE `asset_classes`
+Aug 09 09:31:21 [info] ALTER TABLE `item_inventory` DROP COLUMN `asset_class`
+Aug 09 09:31:22 [info] ALTER TABLE `item_inventory` DROP COLUMN `company_code`
+Aug 09 09:31:23 [info] UPDATE `schema_info` SET version = 10
+Aug 09 09:32:10 [info] SELECT version FROM `schema_info`
+Aug 09 09:32:10 [info] CREATE TABLE `company_codes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `company_code` varchar(50) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+Aug 09 09:32:10 [info] INSERT INTO `company_codes` VALUES ('1', 'Life')
+Aug 09 09:32:10 [info] INSERT INTO `company_codes` VALUES ('2', 'General')
+Aug 09 09:32:10 [info] INSERT INTO `company_codes` VALUES ('3', 'Common')
+Aug 09 09:32:10 [info] CREATE TABLE `asset_classes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `asset_class` varchar(50) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1
+Aug 09 09:32:10 [info] INSERT INTO `asset_classes` VALUES ('1', 'Computer Hardware - Computer')
+Aug 09 09:32:10 [info] INSERT INTO `asset_classes` VALUES ('2', 'Computer Hardware - Server')
+Aug 09 09:32:10 [info] INSERT INTO `asset_classes` VALUES ('3', 'Computer Software - Computer')
+Aug 09 09:32:10 [info] INSERT INTO `asset_classes` VALUES ('4', 'Computer Software - Server ')
+Aug 09 09:32:10 [info] ALTER TABLE `item_inventory` ADD COLUMN `asset_class`  int NULL AFTER `additional_information`
+Aug 09 09:32:11 [info] ALTER TABLE `item_inventory` ADD COLUMN `company_code`  int NULL AFTER `asset_class`
+Aug 09 09:32:12 [info] UPDATE `schema_info` SET version = 11
+Aug 17 06:51:08 [info] SELECT version FROM `schema_info`
+Aug 17 06:51:08 [info] DROP TABLE `company_codes`
+Aug 17 06:51:08 [info] DROP TABLE `asset_classes`
+Aug 17 06:51:08 [info] ALTER TABLE `item_inventory` DROP COLUMN `asset_class`
+Aug 17 06:51:09 [info] ALTER TABLE `item_inventory` DROP COLUMN `company_code`
+Aug 17 06:51:11 [info] UPDATE `schema_info` SET version = 10
+Aug 17 06:52:34 [info] SELECT version FROM `schema_info`
+Aug 17 06:52:34 [info] CREATE TABLE `company_codes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `company_code` varchar(50) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+Aug 17 06:52:34 [info] INSERT INTO `company_codes` VALUES ('1', 'Life')
+Aug 17 06:52:34 [info] INSERT INTO `company_codes` VALUES ('2', 'General')
+Aug 17 06:52:34 [info] INSERT INTO `company_codes` VALUES ('3', 'Common')
+Aug 17 06:52:34 [info] CREATE TABLE `asset_classes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `asset_class` varchar(50) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1
+Aug 17 06:52:34 [info] INSERT INTO `asset_classes` VALUES ('1', 'Computer Hardware - Computer')
+Aug 17 06:52:34 [info] INSERT INTO `asset_classes` VALUES ('2', 'Computer Hardware - Server')
+Aug 17 06:52:34 [info] INSERT INTO `asset_classes` VALUES ('3', 'Computer Software - Computer')
+Aug 17 06:52:34 [info] INSERT INTO `asset_classes` VALUES ('4', 'Computer Software - Server ')
+Aug 17 06:52:34 [info] ALTER TABLE `item_inventory` ADD COLUMN `asset_class`  int NULL AFTER `additional_information`
+Aug 17 06:52:35 [info] ALTER TABLE `item_inventory` ADD COLUMN `company_code`  int NULL AFTER `asset_class`
+Aug 17 06:52:36 [info] ALTER TABLE `item_inventory` ADD COLUMN `cost_center_id`  int NULL AFTER `company_code`
+Aug 17 06:52:37 [info] UPDATE `schema_info` SET version = 11
+Aug 17 07:32:05 [info] SELECT version FROM `schema_info`
+Aug 17 07:32:05 [info] DROP TABLE `company_codes`
+Aug 17 07:32:05 [info] DROP TABLE `asset_classes`
+Aug 17 07:32:05 [info] ALTER TABLE `item_inventory` DROP COLUMN `asset_class`
+Aug 17 07:32:06 [info] ALTER TABLE `item_inventory` DROP COLUMN `company_code`
+Aug 17 07:32:07 [info] ALTER TABLE `item_inventory` DROP COLUMN `cost_center_id`
+Aug 17 07:32:08 [info] UPDATE `schema_info` SET version = 10
+Aug 17 07:34:59 [info] SELECT version FROM `schema_info`
+Aug 17 07:34:59 [info] CREATE TABLE `company_codes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `company_code` varchar(50) DEFAULT NULL, `company_key` varchar(5) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+Aug 17 07:34:59 [info] INSERT INTO `company_codes` VALUES ('1', 'Life', 'CL')
+Aug 17 07:34:59 [info] INSERT INTO `company_codes` VALUES ('2', 'General', 'CG')
+Aug 17 07:34:59 [info] INSERT INTO `company_codes` VALUES ('3', 'Common', 'CC')
+Aug 17 07:34:59 [info] CREATE TABLE `asset_classes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `asset_class` varchar(50) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1
+Aug 17 07:34:59 [info] INSERT INTO `asset_classes` VALUES ('1', 'Computer Hardware - Computer')
+Aug 17 07:34:59 [info] INSERT INTO `asset_classes` VALUES ('2', 'Computer Hardware - Server')
+Aug 17 07:34:59 [info] INSERT INTO `asset_classes` VALUES ('3', 'Computer Software - Computer')
+Aug 17 07:34:59 [info] INSERT INTO `asset_classes` VALUES ('4', 'Computer Software - Server ')
+Aug 17 07:34:59 [info] ALTER TABLE `item_inventory` ADD COLUMN `asset_class`  int NULL AFTER `additional_information`
+Aug 17 07:35:00 [info] ALTER TABLE `item_inventory` ADD COLUMN `company_code`  int NULL AFTER `asset_class`
+Aug 17 07:35:02 [info] ALTER TABLE `item_inventory` ADD COLUMN `cost_center_id`  int NULL AFTER `company_code`
+Aug 17 07:35:03 [info] UPDATE `schema_info` SET version = 11
+Aug 18 10:48:03 [info] SELECT version FROM `schema_info`
+Aug 18 10:48:19 [info] SELECT version FROM `schema_info`
+Aug 18 10:48:19 [info] DROP TABLE `company_codes`
+Aug 18 10:48:19 [info] DROP TABLE `asset_classes`
+Aug 18 10:48:19 [info] ALTER TABLE `item_inventory` DROP COLUMN `asset_class`
+Aug 18 10:48:20 [info] ALTER TABLE `item_inventory` DROP COLUMN `company_code`
+Aug 18 10:48:21 [info] ALTER TABLE `item_inventory` DROP COLUMN `cost_center_id`
+Aug 18 10:48:22 [info] UPDATE `schema_info` SET version = 10
+Aug 18 11:01:40 [info] SELECT version FROM `schema_info`
+Aug 18 11:01:40 [info] CREATE TABLE `company_codes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `company_code` varchar(50) DEFAULT NULL, `company_key` varchar(5) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+Aug 18 11:01:40 [info] INSERT INTO `company_codes` VALUES ('1', 'Life', 'CL')
+Aug 18 11:01:40 [info] INSERT INTO `company_codes` VALUES ('2', 'General', 'CG')
+Aug 18 11:01:40 [info] INSERT INTO `company_codes` VALUES ('3', 'Common', 'CC')
+Aug 18 11:01:40 [info] CREATE TABLE `asset_classes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `asset_class` varchar(50) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1
+Aug 18 11:01:40 [info] INSERT INTO `asset_classes` VALUES ('1', 'Computer Hardware - Computer')
+Aug 18 11:01:40 [info] INSERT INTO `asset_classes` VALUES ('2', 'Computer Hardware - Server')
+Aug 18 11:01:40 [info] INSERT INTO `asset_classes` VALUES ('3', 'Computer Software - Computer')
+Aug 18 11:01:40 [info] INSERT INTO `asset_classes` VALUES ('4', 'Computer Software - Server ')
+Aug 18 11:01:40 [info] ALTER TABLE `item_inventory` ADD COLUMN `asset_class`  int NULL AFTER `additional_information`
+Aug 18 11:01:41 [info] ALTER TABLE `item_inventory` ADD COLUMN `company_code`  int NULL AFTER `asset_class`
+Aug 18 11:01:42 [info] ALTER TABLE `item_inventory` ADD COLUMN `cost_center_id`  int NULL AFTER `company_code`
+Aug 18 11:01:43 [info] INSERT INTO `application_modules` (`module_description`, `module_security_level`, `module_owner`, `created_by`) VALUES ('Text File Generation', '1', '001357', '001357')
+Aug 18 11:01:43 [info] INSERT INTO `user_roles` (`role_id`, `role_description`, `role_access_level`, `created_by`) VALUES ('usr_fin', 'User Finance', '1', '001357')
+Aug 18 11:01:43 [info] INSERT INTO `access_control` (`module_id`, `role_id`, `created_by`) VALUES ('14', 'usr_fin', '001357')
+Aug 18 11:01:43 [info] UPDATE `schema_info` SET version = 11
+Aug 18 11:11:28 [info] SELECT version FROM `schema_info`
+Aug 18 11:11:28 [info] DROP TABLE `company_codes`
+Aug 18 11:11:28 [info] DROP TABLE `asset_classes`
+Aug 18 11:11:28 [info] ALTER TABLE `item_inventory` DROP COLUMN `asset_class`
+Aug 18 11:11:29 [info] ALTER TABLE `item_inventory` DROP COLUMN `company_code`
+Aug 18 11:11:30 [info] ALTER TABLE `item_inventory` DROP COLUMN `cost_center_id`
+Aug 18 11:11:31 [info] DELETE FROM `access_control` WHERE (`control_id`='39')
+Aug 18 11:11:31 [info] ALTER TABLE `access_control` AUTO_INCREMENT=39
+Aug 18 11:11:31 [info] DELETE FROM `application_modules` WHERE (`module_id`='14')
+Aug 18 11:11:31 [info] ALTER TABLE `application_modules` AUTO_INCREMENT=14
+Aug 18 11:11:32 [info] DELETE FROM `user_roles` WHERE (`role_id`='usr_fin')
+Aug 18 11:11:32 [info] UPDATE `schema_info` SET version = 10
+Aug 18 11:12:50 [info] SELECT version FROM `schema_info`
+Aug 18 11:12:50 [info] CREATE TABLE `company_codes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `company_code` varchar(50) DEFAULT NULL, `company_key` varchar(5) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+Aug 18 11:12:50 [info] INSERT INTO `company_codes` VALUES ('1', 'Life', 'CL')
+Aug 18 11:12:50 [info] INSERT INTO `company_codes` VALUES ('2', 'General', 'CG')
+Aug 18 11:12:50 [info] INSERT INTO `company_codes` VALUES ('3', 'Common', 'CC')
+Aug 18 11:12:50 [info] CREATE TABLE `asset_classes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `asset_class` varchar(50) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1
+Aug 18 11:12:50 [info] INSERT INTO `asset_classes` VALUES ('1', 'Computer Hardware - Computer')
+Aug 18 11:12:50 [info] INSERT INTO `asset_classes` VALUES ('2', 'Computer Hardware - Server')
+Aug 18 11:12:50 [info] INSERT INTO `asset_classes` VALUES ('3', 'Computer Software - Computer')
+Aug 18 11:12:50 [info] INSERT INTO `asset_classes` VALUES ('4', 'Computer Software - Server ')
+Aug 18 11:12:50 [info] ALTER TABLE `item_inventory` ADD COLUMN `asset_class`  int NULL AFTER `additional_information`
+Aug 18 11:12:51 [info] ALTER TABLE `item_inventory` ADD COLUMN `company_code`  int NULL AFTER `asset_class`
+Aug 18 11:12:52 [info] ALTER TABLE `item_inventory` ADD COLUMN `cost_center_id`  int NULL AFTER `company_code`
+Aug 18 11:12:53 [info] INSERT INTO `application_modules` (`module_description`, `module_security_level`, `module_owner`, `created_by`) VALUES ('Text File Generation', '1', '001357', '001357')
+Aug 18 11:12:53 [info] INSERT INTO `user_roles` (`role_id`, `role_description`, `role_access_level`, `created_by`) VALUES ('usr_fin', 'User Finance', '1', '001357')
+Aug 18 11:12:53 [info] INSERT INTO `access_control` (`module_id`, `role_id`, `created_by`) VALUES ('1', 'usr_fin', '001357')
+Aug 18 11:12:53 [info] INSERT INTO `access_control` (`module_id`, `role_id`, `created_by`) VALUES ('14', 'usr_fin', '001357')
+Aug 18 11:12:53 [info] UPDATE `schema_info` SET version = 11
+Aug 19 03:53:04 [info] SELECT version FROM `schema_info`
+Aug 19 03:53:04 [info] DROP TABLE `company_codes`
+Aug 19 03:53:04 [info] DROP TABLE `asset_classes`
+Aug 19 03:53:04 [info] ALTER TABLE `item_inventory` DROP COLUMN `asset_class`
+Aug 19 03:53:05 [info] ALTER TABLE `item_inventory` DROP COLUMN `company_code`
+Aug 19 03:53:06 [info] ALTER TABLE `item_inventory` DROP COLUMN `cost_center_id`
+Aug 19 03:53:07 [info] DELETE FROM `access_control` WHERE (`control_id`='39')
+Aug 19 03:53:07 [info] DELETE FROM `access_control` WHERE (`control_id`='40')
+Aug 19 03:53:07 [info] ALTER TABLE `access_control` AUTO_INCREMENT=39
+Aug 19 03:53:07 [info] DELETE FROM `application_modules` WHERE (`module_id`='14')
+Aug 19 03:53:07 [info] ALTER TABLE `application_modules` AUTO_INCREMENT=14
+Aug 19 03:53:08 [info] DELETE FROM `user_roles` WHERE (`role_id`='usr_fin')
+Aug 19 03:53:08 [info] UPDATE `schema_info` SET version = 10
+Aug 19 03:55:27 [info] SELECT version FROM `schema_info`
+Aug 19 03:55:27 [info] CREATE TABLE `company_codes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `company_code` varchar(50) DEFAULT NULL, `company_key` varchar(5) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+Aug 19 03:55:27 [info] INSERT INTO `company_codes` VALUES ('1', 'Life', 'CL')
+Aug 19 03:55:27 [info] INSERT INTO `company_codes` VALUES ('2', 'General', 'CG')
+Aug 19 03:55:27 [info] INSERT INTO `company_codes` VALUES ('3', 'Common', 'CC')
+Aug 19 03:55:27 [info] CREATE TABLE `asset_classes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `asset_class` varchar(50) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1
+Aug 19 03:55:27 [info] INSERT INTO `asset_classes` VALUES ('1', 'Computer Hardware - Computer')
+Aug 19 03:55:27 [info] INSERT INTO `asset_classes` VALUES ('2', 'Computer Hardware - Server')
+Aug 19 03:55:27 [info] INSERT INTO `asset_classes` VALUES ('3', 'Computer Software - Computer')
+Aug 19 03:55:27 [info] INSERT INTO `asset_classes` VALUES ('4', 'Computer Software - Server ')
+Aug 19 03:55:27 [info] ALTER TABLE `item_inventory` ADD COLUMN `asset_class`  int NULL AFTER `additional_information`
+Aug 19 03:55:28 [info] ALTER TABLE `item_inventory` ADD COLUMN `company_code`  int NULL AFTER `asset_class`
+Aug 19 03:55:29 [info] ALTER TABLE `item_inventory` ADD COLUMN `cost_center_id`  int NULL AFTER `company_code`
+Aug 19 03:55:30 [info] ALTER TABLE `vendors` ADD COLUMN `vendor_code` varchar(20) NULL AFTER `vendor_id`
+Aug 19 03:55:30 [info] INSERT INTO `application_modules` (`module_description`, `module_security_level`, `module_owner`, `created_by`) VALUES ('Text File Generation', '1', '001357', '001357')
+Aug 19 03:55:30 [info] INSERT INTO `user_roles` (`role_id`, `role_description`, `role_access_level`, `created_by`) VALUES ('usr_fin', 'User Finance', '1', '001357')
+Aug 19 03:55:30 [info] INSERT INTO `access_control` (`module_id`, `role_id`, `created_by`) VALUES ('1', 'usr_fin', '001357')
+Aug 19 03:55:30 [info] INSERT INTO `access_control` (`module_id`, `role_id`, `created_by`) VALUES ('14', 'usr_fin', '001357')
+Aug 19 03:55:30 [info] UPDATE `schema_info` SET version = 11
+Aug 19 03:55:49 [info] SELECT version FROM `schema_info`
+Aug 19 03:55:49 [info] DROP TABLE `company_codes`
+Aug 19 03:55:49 [info] DROP TABLE `asset_classes`
+Aug 19 03:55:49 [info] ALTER TABLE `item_inventory` DROP COLUMN `asset_class`
+Aug 19 03:55:50 [info] ALTER TABLE `item_inventory` DROP COLUMN `company_code`
+Aug 19 03:55:52 [info] ALTER TABLE `item_inventory` DROP COLUMN `cost_center_id`
+Aug 19 03:55:53 [info] ALTER TABLE `vendors` DROP COLUMN `vendor_code`
+Aug 19 03:55:53 [info] DELETE FROM `access_control` WHERE (`control_id`='39')
+Aug 19 03:55:53 [info] DELETE FROM `access_control` WHERE (`control_id`='40')
+Aug 19 03:55:53 [info] ALTER TABLE `access_control` AUTO_INCREMENT=39
+Aug 19 03:55:53 [info] DELETE FROM `application_modules` WHERE (`module_id`='14')
+Aug 19 03:55:53 [info] ALTER TABLE `application_modules` AUTO_INCREMENT=14
+Aug 19 03:55:53 [info] DELETE FROM `user_roles` WHERE (`role_id`='usr_fin')
+Aug 19 03:55:53 [info] UPDATE `schema_info` SET version = 10
+Aug 19 03:56:06 [info] SELECT version FROM `schema_info`
+Aug 19 03:56:06 [info] CREATE TABLE `company_codes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `company_code` varchar(50) DEFAULT NULL, `company_key` varchar(5) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+Aug 19 03:56:07 [info] INSERT INTO `company_codes` VALUES ('1', 'Life', 'CL')
+Aug 19 03:56:07 [info] INSERT INTO `company_codes` VALUES ('2', 'General', 'CG')
+Aug 19 03:56:07 [info] INSERT INTO `company_codes` VALUES ('3', 'Common', 'CC')
+Aug 19 03:56:07 [info] CREATE TABLE `asset_classes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `asset_class` varchar(50) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1
+Aug 19 03:56:07 [info] INSERT INTO `asset_classes` VALUES ('1', 'Computer Hardware - Computer')
+Aug 19 03:56:07 [info] INSERT INTO `asset_classes` VALUES ('2', 'Computer Hardware - Server')
+Aug 19 03:56:07 [info] INSERT INTO `asset_classes` VALUES ('3', 'Computer Software - Computer')
+Aug 19 03:56:07 [info] INSERT INTO `asset_classes` VALUES ('4', 'Computer Software - Server ')
+Aug 19 03:56:07 [info] ALTER TABLE `item_inventory` ADD COLUMN `asset_class`  int NULL AFTER `additional_information`
+Aug 19 03:56:08 [info] ALTER TABLE `item_inventory` ADD COLUMN `company_code`  int NULL AFTER `asset_class`
+Aug 19 03:56:09 [info] ALTER TABLE `item_inventory` ADD COLUMN `cost_center_id`  int NULL AFTER `company_code`
+Aug 19 03:56:09 [info] ALTER TABLE `vendors` ADD COLUMN `vendor_code` varchar(20) NULL AFTER `vendor_id`
+Aug 19 03:56:10 [info] INSERT INTO `application_modules` (`module_description`, `module_security_level`, `module_owner`, `created_by`) VALUES ('Text File Generation', '1', '001357', '001357')
+Aug 19 03:56:10 [info] INSERT INTO `user_roles` (`role_id`, `role_description`, `role_access_level`, `created_by`) VALUES ('usr_fin', 'User Finance', '1', '001357')
+Aug 19 03:56:10 [info] INSERT INTO `access_control` (`module_id`, `role_id`, `created_by`) VALUES ('1', 'usr_fin', '001357')
+Aug 19 03:56:10 [info] INSERT INTO `access_control` (`module_id`, `role_id`, `created_by`) VALUES ('14', 'usr_fin', '001357')
+Aug 19 03:56:10 [info] UPDATE `schema_info` SET version = 11
+Aug 20 06:25:17 [info] SELECT version FROM `schema_info`
+Aug 20 06:25:17 [info] DROP TABLE `company_codes`
+Aug 20 06:25:17 [info] DROP TABLE `asset_classes`
+Aug 20 06:25:17 [info] ALTER TABLE `item_inventory` DROP COLUMN `asset_class`
+Aug 20 06:25:18 [info] ALTER TABLE `item_inventory` DROP COLUMN `company_code`
+Aug 20 06:25:19 [info] ALTER TABLE `item_inventory` DROP COLUMN `cost_center_id`
+Aug 20 06:25:20 [info] ALTER TABLE `vendors` DROP COLUMN `vendor_code`
+Aug 20 06:25:20 [info] DELETE FROM `access_control` WHERE (`control_id`='39')
+Aug 20 06:25:20 [info] DELETE FROM `access_control` WHERE (`control_id`='40')
+Aug 20 06:25:20 [info] ALTER TABLE `access_control` AUTO_INCREMENT=39
+Aug 20 06:25:20 [info] DELETE FROM `application_modules` WHERE (`module_id`='14')
+Aug 20 06:25:20 [info] ALTER TABLE `application_modules` AUTO_INCREMENT=14
+Aug 20 06:25:20 [info] DELETE FROM `user_roles` WHERE (`role_id`='usr_fin')
+Aug 20 06:25:20 [info] UPDATE `schema_info` SET version = 10
+Aug 20 06:25:45 [info] SELECT version FROM `schema_info`
+Aug 20 06:25:45 [info] CREATE TABLE `company_codes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `company_code` varchar(50) DEFAULT NULL, `company_key` varchar(5) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+Aug 20 06:25:45 [info] INSERT INTO `company_codes` VALUES ('1', 'Life', 'CL')
+Aug 20 06:25:45 [info] INSERT INTO `company_codes` VALUES ('2', 'General', 'CG')
+Aug 20 06:25:45 [info] INSERT INTO `company_codes` VALUES ('3', 'Common', 'CC')
+Aug 20 06:25:45 [info] CREATE TABLE `asset_classes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `asset_class` varchar(50) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1
+Aug 20 06:25:45 [info] INSERT INTO `asset_classes` VALUES ('1', 'Computer Hardware - Computer')
+Aug 20 06:25:45 [info] INSERT INTO `asset_classes` VALUES ('2', 'Computer Hardware - Server')
+Aug 20 06:25:45 [info] INSERT INTO `asset_classes` VALUES ('3', 'Computer Software - Computer')
+Aug 20 06:25:45 [info] INSERT INTO `asset_classes` VALUES ('4', 'Computer Software - Server ')
+Aug 20 06:25:45 [info] ALTER TABLE `item_inventory` ADD COLUMN `asset_class`  int NULL AFTER `additional_information`
+Aug 20 06:25:46 [info] ALTER TABLE `item_inventory` ADD COLUMN `company_code`  int NULL AFTER `asset_class`
+Aug 20 06:25:47 [info] ALTER TABLE `item_inventory` ADD COLUMN `cost_center_id`  int NULL AFTER `company_code`
+Aug 20 06:25:48 [info] ALTER TABLE `vendors` ADD COLUMN `vendor_code` varchar(20) NULL AFTER `vendor_id`
+Aug 20 06:25:49 [info] INSERT INTO `application_modules` (`module_description`, `module_security_level`, `module_owner`, `created_by`) VALUES ('Text File Generation', '1', '001357', '001357')
+Aug 20 06:25:49 [info] INSERT INTO `user_roles` (`role_id`, `role_description`, `role_access_level`, `created_by`) VALUES ('usr_fin', 'User Finance', '1', '001357')
+Aug 20 06:25:49 [info] INSERT INTO `access_control` (`module_id`, `role_id`, `created_by`) VALUES ('1', 'usr_fin', '001357')
+Aug 20 06:25:49 [info] INSERT INTO `access_control` (`module_id`, `role_id`, `created_by`) VALUES ('14', 'usr_fin', '001357')
+Aug 20 06:25:49 [info] UPDATE `schema_info` SET version = 11
+Aug 20 06:28:09 [info] SELECT version FROM `schema_info`
+Aug 20 06:28:09 [info] DROP TABLE `company_codes`
+Aug 20 06:28:09 [info] DROP TABLE `asset_classes`
+Aug 20 06:28:09 [info] ALTER TABLE `item_inventory` DROP COLUMN `asset_class`
+Aug 20 06:28:10 [info] ALTER TABLE `item_inventory` DROP COLUMN `company_code`
+Aug 20 06:28:11 [info] ALTER TABLE `item_inventory` DROP COLUMN `cost_center_id`
+Aug 20 06:28:12 [info] ALTER TABLE `vendors` DROP COLUMN `vendor_code`
+Aug 20 06:28:12 [info] DELETE FROM `access_control` WHERE (`control_id`='39')
+Aug 20 06:28:12 [info] DELETE FROM `access_control` WHERE (`control_id`='40')
+Aug 20 06:28:12 [info] ALTER TABLE `access_control` AUTO_INCREMENT=39
+Aug 20 06:28:12 [info] DELETE FROM `application_modules` WHERE (`module_id`='14')
+Aug 20 06:28:12 [info] ALTER TABLE `application_modules` AUTO_INCREMENT=14
+Aug 20 06:28:12 [info] DELETE FROM `user_roles` WHERE (`role_id`='usr_fin')
+Aug 20 06:28:12 [info] UPDATE `schema_info` SET version = 10
+Aug 20 06:31:14 [info] SELECT version FROM `schema_info`
+Aug 20 06:31:14 [info] CREATE TABLE `company_codes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `company_code` varchar(50) DEFAULT NULL, `company_key` varchar(5) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+Aug 20 06:31:14 [info] INSERT INTO `company_codes` VALUES ('1', 'Life', 'CL')
+Aug 20 06:31:14 [info] INSERT INTO `company_codes` VALUES ('2', 'General', 'CG')
+Aug 20 06:31:14 [info] INSERT INTO `company_codes` VALUES ('3', 'Common', 'CC')
+Aug 20 06:31:14 [info] CREATE TABLE `asset_classes` ( `id` int(11) NOT NULL AUTO_INCREMENT, `asset_class` varchar(50) DEFAULT NULL, `sap_code` varchar(10) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1
+Aug 20 06:31:14 [info] INSERT INTO `asset_classes` VALUES ('1', 'Computer Hardware - Computer', 'Z1090')
+Aug 20 06:31:14 [info] INSERT INTO `asset_classes` VALUES ('2', 'Computer Hardware - Server', 'Z1080')
+Aug 20 06:31:14 [info] INSERT INTO `asset_classes` VALUES ('3', 'Computer Software - Computer', 'Z1110')
+Aug 20 06:31:14 [info] INSERT INTO `asset_classes` VALUES ('4', 'Computer Software - Server ', 'Z1100')
+Aug 20 06:31:14 [info] ALTER TABLE `item_inventory` ADD COLUMN `asset_class`  int NULL AFTER `additional_information`
+Aug 20 06:31:15 [info] ALTER TABLE `item_inventory` ADD COLUMN `company_code`  int NULL AFTER `asset_class`
+Aug 20 06:31:16 [info] ALTER TABLE `item_inventory` ADD COLUMN `cost_center_id`  int NULL AFTER `company_code`
+Aug 20 06:31:17 [info] ALTER TABLE `vendors` ADD COLUMN `vendor_code` varchar(20) NULL AFTER `vendor_id`
+Aug 20 06:31:17 [info] INSERT INTO `application_modules` (`module_description`, `module_security_level`, `module_owner`, `created_by`) VALUES ('Text File Generation', '1', '001357', '001357')
+Aug 20 06:31:17 [info] INSERT INTO `user_roles` (`role_id`, `role_description`, `role_access_level`, `created_by`) VALUES ('usr_fin', 'User Finance', '1', '001357')
+Aug 20 06:31:17 [info] INSERT INTO `access_control` (`module_id`, `role_id`, `created_by`) VALUES ('1', 'usr_fin', '001357')
+Aug 20 06:31:17 [info] INSERT INTO `access_control` (`module_id`, `role_id`, `created_by`) VALUES ('14', 'usr_fin', '001357')
+Aug 20 06:31:17 [info] UPDATE `schema_info` SET version = 11
+Sep 19 17:05:49 [info] SELECT version FROM `schema_info`
+Sep 19 17:06:05 [info] SELECT version FROM `schema_info`
+Sep 19 17:06:05 [info] INSERT INTO `asset_classes` VALUES ('5', 'Office Equipment ', 'Z1060')
+Sep 19 17:06:05 [info] ALTER TABLE `item_types` ADD COLUMN `notifications` tinyint NULL DEFAULT 0 AFTER `service_level_hours`
+Sep 19 17:06:05 [info] ALTER TABLE `item_inventory` ADD COLUMN `ordered_division` text NULL AFTER `cost_center_id`
+Sep 19 17:06:07 [info] UPDATE `schema_info` SET version = 12
+Oct 02 13:15:55 [info] SELECT version FROM `schema_info`
+Oct 02 13:15:55 [info] INSERT INTO `asset_classes` VALUES ('5', 'Office Equipment ', 'Z1060')
+Oct 02 13:15:55 [info] ALTER TABLE `item_types` ADD COLUMN `notifications` tinyint NULL DEFAULT 0 AFTER `service_level_hours`
+Oct 02 13:15:55 [info] ALTER TABLE `item_inventory` ADD COLUMN `ordered_division` text NULL AFTER `cost_center_id`
+Oct 02 13:15:56 [info] ALTER TABLE `item_inventory` ADD COLUMN `capex_type` varchar(2) NULL AFTER `installed_capex`
+Oct 02 13:15:57 [info] UPDATE `schema_info` SET version = 12
+Oct 02 13:17:17 [info] SELECT version FROM `schema_info`
+Oct 02 13:17:17 [info] DELETE FROM `asset_classes` WHERE (`id`='5')
+Oct 02 13:17:17 [info] ALTER TABLE `asset_classes` AUTO_INCREMENT=5
+Oct 02 13:17:17 [info] ALTER TABLE `item_types` DROP COLUMN `notifications`
+Oct 02 13:17:17 [info] ALTER TABLE `item_inventory` DROP COLUMN `ordered_division`
+Oct 02 13:17:18 [info] ALTER TABLE `item_inventory` DROP COLUMN `capex_type`
+Oct 02 13:17:19 [info] UPDATE `schema_info` SET version = 11
+Oct 02 13:18:14 [info] SELECT version FROM `schema_info`
+Oct 02 13:18:14 [info] INSERT INTO `asset_classes` VALUES ('5', 'Office Equipment ', 'Z1060')
+Oct 02 13:18:14 [info] ALTER TABLE `item_types` ADD COLUMN `notifications` tinyint NULL DEFAULT 0 AFTER `service_level_hours`
+Oct 02 13:18:14 [info] ALTER TABLE `item_inventory` ADD COLUMN `capex_type` varchar(2) NULL AFTER `installed_capex`
+Oct 02 13:18:15 [info] UPDATE `schema_info` SET version = 12

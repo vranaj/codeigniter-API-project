@@ -1,0 +1,28 @@
+Codeigniter version : 3.*
+
+////********installation guide********////
+1. extract the file
+2. create a database with any name eg :- xxxxx in your sever
+3. import the sql file(in my case it is "procurement_vx.sql") to your database
+4. copy the application folder(in my case it is "procurement_vx") to your server location and you can give any name to it
+5. change the database config data set with your sever config data set.
+6. go to your browser and load the file (in my case, i am using localhost so my file url = http://localhost/procurement_vx/).
+
+
+//*** login ***//
+==========
+for local server,  url : localhost/procurement_vx/index.php/users/index/
+----------------- 
+
+
+
+* you can use this same link to direct login using url and form submit
+* for url login perameters : ($user_id=false, $password=false, $login_type=false)
+
+default login view : procurement_vx/application/views/users/index.php
+
+*in the login view,
+ 1. for testing only : login_type = direct
+
+
+

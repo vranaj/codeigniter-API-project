@@ -1,0 +1,360 @@
+CREATE TABLE `activity` (
+  `activity_id` int(11) NOT NULL AUTO_INCREMENT,
+  `course_id` int(11) DEFAULT NULL,
+  `module_id` int(11) DEFAULT NULL,
+  `activity_path` varchar(100) DEFAULT NULL,
+  `activity_name` varchar(100) DEFAULT NULL,
+  `activity_description` varchar(255) DEFAULT NULL,
+  `activity_status` tinyint(4) DEFAULT NULL,
+  `activity_time_low` int(11) DEFAULT NULL,
+  `activity_time_high` int(11) DEFAULT NULL,
+  PRIMARY KEY (`activity_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `buyer` (
+  `buyer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `seller_id` int(11) DEFAULT NULL,
+  `buyer_org_name` varchar(100) DEFAULT NULL,
+  `buyer_company_site` varchar(100) DEFAULT NULL,
+  `job_network_id` varchar(50) DEFAULT NULL,
+  `job_network_name` varchar(50) DEFAULT NULL,
+  `buyer_add_1` varchar(255) DEFAULT NULL,
+  `buyer_add_2` varchar(255) DEFAULT NULL,
+  `buyer_city` varchar(50) DEFAULT NULL,
+  `buyer_region` varchar(50) DEFAULT NULL,
+  `buyer_postal` varchar(15) DEFAULT NULL,
+  `buyer_country` varchar(150) DEFAULT NULL,
+  `buyer_contact_areacode` varchar(5) DEFAULT NULL,
+  `buyer_contact_no` varchar(20) DEFAULT NULL,
+  `buyer_email` varchar(50) DEFAULT NULL,
+  `buyer_date_joined` datetime DEFAULT NULL,
+  `buyer_created_by` int(11) DEFAULT NULL,
+  `buyer_status` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`buyer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `buyer_course` (
+  `buyer_course_id` int(11) NOT NULL AUTO_INCREMENT,
+  `buyer_id` int(11) DEFAULT NULL,
+  `course_id` int(11) DEFAULT NULL,
+  `active_from` date DEFAULT NULL,
+  `active_to` date DEFAULT NULL,
+  `email_generated` tinyint(4) DEFAULT '0',
+  `payments_done` tinyint(4) DEFAULT '0',
+  `buyer_course_status` tinyint(4) DEFAULT '0',
+  PRIMARY KEY (`buyer_course_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `buyer_deleted` (
+  `buyer_id` int(11) NOT NULL,
+  `seller_id` int(11) DEFAULT NULL,
+  `buyer_org_name` varchar(100) DEFAULT NULL,
+  `buyer_company_site` varchar(100) DEFAULT NULL,
+  `job_network_id` varchar(50) DEFAULT NULL,
+  `job_network_name` varchar(50) DEFAULT NULL,
+  `buyer_add_1` varchar(255) DEFAULT NULL,
+  `buyer_add_2` varchar(255) DEFAULT NULL,
+  `buyer_city` varchar(50) DEFAULT NULL,
+  `buyer_region` varchar(50) DEFAULT NULL,
+  `buyer_postal` varchar(15) DEFAULT NULL,
+  `buyer_country` varchar(150) DEFAULT NULL,
+  `buyer_contact_areacode` varchar(5) DEFAULT NULL,
+  `buyer_contact_no` varchar(20) DEFAULT NULL,
+  `buyer_email` varchar(50) DEFAULT NULL,
+  `buyer_date_joined` datetime DEFAULT NULL,
+  `buyer_created_by` int(11) DEFAULT NULL,
+  `buyer_status` tinyint(4) DEFAULT NULL,
+  `buyer_deleted_by` int(11) DEFAULT NULL,
+  `buyer_deleted_date` date DEFAULT NULL,
+  PRIMARY KEY (`buyer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `category` (
+  `cat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `cat_name` varchar(50) DEFAULT NULL,
+  `cat_desc` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`cat_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `countries` (
+  `country_id` int(11) NOT NULL AUTO_INCREMENT,
+  `country_name` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`country_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `course` (
+  `course_id` int(11) NOT NULL AUTO_INCREMENT,
+  `seller_id` int(11) DEFAULT NULL,
+  `course_name` varchar(100) DEFAULT NULL,
+  `course_name_alias` varchar(20) DEFAULT NULL,
+  `course_description` text,
+  `course_dtl_description` text,
+  `course_ref_no` varchar(50) DEFAULT NULL,
+  `cat_id` int(11) DEFAULT NULL,
+  `sub_cat_id` int(11) DEFAULT NULL,
+  `course_creation_date` date DEFAULT NULL,
+  `course_modified_date` date DEFAULT NULL,
+  `course_expiry_date` date DEFAULT NULL,
+  `course_price` double DEFAULT NULL,
+  `course_comments` text,
+  `course_rating` int(11) DEFAULT NULL,
+  `course_status` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`course_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `invoice` (
+  `invoice_no` int(11) NOT NULL,
+  `invoice_date` date DEFAULT NULL,
+  `generated_by` int(11) DEFAULT NULL,
+  `buyer_id` int(11) DEFAULT NULL,
+  `date_from` date DEFAULT NULL,
+  `date_to` date DEFAULT NULL,
+  `file_name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`invoice_no`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `module` (
+  `module_id` int(11) NOT NULL AUTO_INCREMENT,
+  `course_id` int(11) DEFAULT NULL,
+  `module_ref_no` varchar(50) DEFAULT NULL,
+  `module_path` varchar(100) DEFAULT NULL,
+  `module_name` varchar(100) DEFAULT NULL,
+  `module_description` varchar(255) DEFAULT NULL,
+  `module_duration` double DEFAULT NULL,
+  `module_total_slides` int(11) DEFAULT '0',
+  `module_creation_date` date DEFAULT NULL,
+  `module_modified_date` date DEFAULT NULL,
+  `module_expiry_date` date DEFAULT NULL,
+  `module_comments` text,
+  `module_status` tinyint(4) DEFAULT NULL,
+  `module_runtime` int(11) DEFAULT NULL,
+  PRIMARY KEY (`module_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `seller` (
+  `seller_id` int(11) NOT NULL AUTO_INCREMENT,
+  `seller_org_name` varchar(100) DEFAULT NULL,
+  `seller_add_1` varchar(255) DEFAULT NULL,
+  `seller_add_2` varchar(255) DEFAULT NULL,
+  `seller_city` varchar(50) DEFAULT NULL,
+  `seller_region` varchar(50) DEFAULT NULL,
+  `seller_postal` varchar(15) DEFAULT NULL,
+  `seller_country` varchar(150) DEFAULT NULL,
+  `seller_phone_areacode` varchar(5) DEFAULT NULL,
+  `seller_phone_number` varchar(20) DEFAULT NULL,
+  `seller_email` varchar(50) DEFAULT NULL,
+  `seller_date_joined` date DEFAULT NULL,
+  `seller_status` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`seller_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `site` (
+  `site_id` int(11) NOT NULL AUTO_INCREMENT,
+  `buyer_id` int(11) DEFAULT NULL,
+  `site_code` varchar(20) DEFAULT NULL,
+  `site_name` varchar(100) DEFAULT NULL,
+  `home_site` bit(1) DEFAULT b'0',
+  `site_add_1` varchar(255) DEFAULT NULL,
+  `site_add_2` varchar(255) DEFAULT NULL,
+  `site_city` varchar(50) DEFAULT NULL,
+  `site_region` varchar(50) DEFAULT NULL,
+  `site_postal` varchar(15) DEFAULT NULL,
+  `site_country` varchar(150) DEFAULT NULL,
+  `site_contact_areacode` varchar(5) DEFAULT NULL,
+  `site_contact_no` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`site_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=259 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `student_activity` (
+  `student_activity_id` int(11) NOT NULL AUTO_INCREMENT,
+  `activity_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `module_id` int(11) DEFAULT NULL,
+  `course_id` int(11) DEFAULT NULL,
+  `activity_start_date` date DEFAULT NULL,
+  `activity_end_date` date DEFAULT NULL,
+  `activity_xml` longtext,
+  `activity_completion_status` tinyint(4) DEFAULT '0',
+  PRIMARY KEY (`student_activity_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31314 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `student_activity_deleted` (
+  `student_activity_id` int(11) NOT NULL,
+  `activity_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `module_id` int(11) DEFAULT NULL,
+  `course_id` int(11) DEFAULT NULL,
+  `activity_start_date` date DEFAULT NULL,
+  `activity_end_date` date DEFAULT NULL,
+  `activity_xml` text,
+  `activity_completion_status` tinyint(4) DEFAULT '0',
+  `activity_deleted_by` int(11) DEFAULT NULL,
+  `activity_deleted_date` date DEFAULT NULL,
+  PRIMARY KEY (`student_activity_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `student_module` (
+  `buyer_course_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `module_id` int(11) DEFAULT NULL,
+  `course_id` int(11) DEFAULT NULL,
+  `score` int(11) DEFAULT NULL,
+  `progress` int(11) DEFAULT '0',
+  `time_taken` int(11) DEFAULT NULL,
+  `slide_id` int(11) unsigned DEFAULT '0',
+  `total_slides_completed` int(11) DEFAULT '0',
+  `enrolled_date` date DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `archive` tinyint(4) DEFAULT '0',
+  `progress_xml` text,
+  `completion_status` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`buyer_course_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10456 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `student_module_deleted` (
+  `buyer_course_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `module_id` int(11) DEFAULT NULL,
+  `course_id` int(11) DEFAULT NULL,
+  `score` int(11) DEFAULT NULL,
+  `progress` int(11) DEFAULT '0',
+  `time_taken` int(11) DEFAULT NULL,
+  `slide_id` int(11) unsigned DEFAULT '0',
+  `total_slides_completed` int(11) DEFAULT '0',
+  `enrolled_date` date DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `archive` tinyint(4) DEFAULT '0',
+  `progress_xml` text,
+  `completion_status` tinyint(4) DEFAULT NULL,
+  `module_deleted_by` int(11) DEFAULT NULL,
+  `module_deleted_date` date DEFAULT NULL,
+  PRIMARY KEY (`buyer_course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `student_questionnaire` (
+  `user_id` int(11) DEFAULT NULL,
+  `question1` varchar(5) DEFAULT NULL,
+  `question2` varchar(5) DEFAULT NULL,
+  `question3` varchar(5) DEFAULT NULL,
+  `question4` varchar(5) DEFAULT NULL,
+  `question5` varchar(5) DEFAULT NULL,
+  `question6` varchar(5) DEFAULT NULL,
+  `question7` varchar(5) DEFAULT NULL,
+  `followedup` tinyint(4) DEFAULT '0',
+  `clear_followedup` tinyint(4) DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `student_questionnaire_deleted` (
+  `user_id` int(11) DEFAULT NULL,
+  `question1` varchar(5) DEFAULT NULL,
+  `question2` varchar(5) DEFAULT NULL,
+  `question3` varchar(5) DEFAULT NULL,
+  `question4` varchar(5) DEFAULT NULL,
+  `question5` varchar(5) DEFAULT NULL,
+  `question6` varchar(5) DEFAULT NULL,
+  `question7` varchar(5) DEFAULT NULL,
+  `followedup` tinyint(4) DEFAULT '0',
+  `clear_followedup` tinyint(4) DEFAULT '0',
+  `questionnaire_deleted_by` int(11) DEFAULT NULL,
+  `questionnaire_deleted_date` date DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE `sub_category` (
+  `sub_cat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sub_cat_name` varchar(50) DEFAULT NULL,
+  `sub_cat_description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`sub_cat_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `support` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `submitted_on` datetime DEFAULT NULL,
+  `contact_number` varchar(20) DEFAULT NULL,
+  `question_type` varchar(50) DEFAULT NULL,
+  `problem_nature` varchar(255) DEFAULT NULL,
+  `problem_explanation` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=253 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `job_seeker_id` varchar(50) DEFAULT NULL,
+  `centrelink_ref_no` varchar(50) DEFAULT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `full_name` varchar(150) DEFAULT NULL,
+  `site_id` int(11) DEFAULT NULL,
+  `company_site` varchar(100) DEFAULT NULL,
+  `user_add_1` varchar(255) DEFAULT NULL,
+  `user_add_2` varchar(255) DEFAULT NULL,
+  `user_city` varchar(50) DEFAULT NULL,
+  `user_region` varchar(50) DEFAULT NULL,
+  `user_postal` varchar(15) DEFAULT NULL,
+  `user_country` varchar(150) DEFAULT NULL,
+  `user_contact_areacode` varchar(5) DEFAULT NULL,
+  `user_contact_no` varchar(20) DEFAULT NULL,
+  `user_alt_contact_areacode` varchar(5) DEFAULT NULL,
+  `user_alt_contact_no` varchar(20) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `user_email` varchar(50) DEFAULT NULL,
+  `password` varchar(150) DEFAULT NULL,
+  `login_history` text,
+  `last_login` datetime DEFAULT NULL,
+  `user_status` tinyint(4) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  `buyer_id` int(11) DEFAULT NULL,
+  `seller_id` int(11) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date_time` datetime DEFAULT NULL,
+  `admin_granted_by` int(11) DEFAULT NULL,
+  `admin_removed_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2657 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `user_deleted` (
+  `user_id` int(11) NOT NULL,
+  `job_seeker_id` varchar(50) DEFAULT NULL,
+  `centrelink_ref_no` varchar(50) DEFAULT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `full_name` varchar(150) DEFAULT NULL,
+  `site_id` int(11) DEFAULT NULL,
+  `company_site` varchar(100) DEFAULT NULL,
+  `user_add_1` varchar(255) DEFAULT NULL,
+  `user_add_2` varchar(255) DEFAULT NULL,
+  `user_city` varchar(50) DEFAULT NULL,
+  `user_region` varchar(50) DEFAULT NULL,
+  `user_postal` varchar(15) DEFAULT NULL,
+  `user_country` varchar(150) DEFAULT NULL,
+  `user_contact_areacode` varchar(5) DEFAULT NULL,
+  `user_contact_no` varchar(20) DEFAULT NULL,
+  `user_alt_contact_areacode` varchar(5) DEFAULT NULL,
+  `user_alt_contact_no` varchar(20) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `user_email` varchar(50) DEFAULT NULL,
+  `password` varchar(150) DEFAULT NULL,
+  `login_history` text,
+  `last_login` datetime DEFAULT NULL,
+  `user_status` tinyint(4) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  `buyer_id` int(11) DEFAULT NULL,
+  `seller_id` int(11) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date_time` datetime DEFAULT NULL,
+  `admin_granted_by` int(11) DEFAULT NULL,
+  `admin_removed_by` int(11) DEFAULT NULL,
+  `user_deleted_by` int(11) DEFAULT NULL,
+  `user_deleted_date` date DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `user_type` (
+  `type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_name` varchar(50) DEFAULT NULL,
+  `type_desc` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`type_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
