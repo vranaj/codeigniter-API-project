@@ -34,8 +34,8 @@ Codeigniter version : 3.1.4
 1.  extract the file
 2.  create a database with any name eg :- xxxxx in your sever
 3.  import the sql file("procurement_vx.sql") to your database
-4.  copy the application folder(in my case it is "procurement_vx") to your server location and you can give any name to it
-5.  change the database config data set with your sever config data set.
+4.  create a application folder in your server location and you can give any name to it(in my case it is "procurement_vx") and copy the files to that folder
+5.  change the database config data set with your sever config data set. and change the base url in the config file(in my case, i am using localhost so my file url = http://localhost/procurement_vx/).
 6.  go to your browser and load the file (in my case, i am using localhost so my file url = http://localhost/procurement_vx/).
 7. give the full file permission to the dev user.
 
