@@ -1,6 +1,20 @@
 # codeigniter-API-project
 codeigniter extended with ace admin template + user management + auto generating menus and files
 
+
+Why you need to use this ?
+1.  you do not need to create any controller files. because system will create a controller for you while you create the menu using the interface.
+2. you do not need to create a separate modules (Eg for sub module :- "Manage users" ), because the system will create a separate module while you create the sub menu.
+3.  you do not need to create any JS,CSS files for you new module. because the system will automatically create it for you.
+4.  you do not need to create any functions in the controller. because the system will create for you when you create the sub menu function.
+*so developers no need to configure the navigation bar , controller, model , views and module functions.
+*they can directly start the coding by accessing the function quickly. it will minimize the developing time.
+
+5. this system having a user management system. so you do not need to waste your time to develop a  separate user management to this system.
+ 
+so all you need to do is just login to the system as admin(username: admin, password:admin123) the system interface . and then,
+
+
 SYSTEM INTRODUCTION
 ===================
 Codeigniter version : 3.1.4
