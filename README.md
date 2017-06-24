@@ -1,8 +1,10 @@
 # codeigniter-API-project
-codeigniter extended with ace admin template + user management + auto generating menus and files
+**codeigniter extended with ace admin template + user management + auto generating menus and files
+** usefull to quick webdevelopment, just install ans run. **
 
 
 Why you need to use this ?
+
 1.  you do not need to create any controller files. because system will create a controller for you while you create the menu using the interface.
 2. you do not need to create a separate modules (Eg for sub module :- "Manage users" ), because the system will create a separate module while you create the sub menu.
 3.  you do not need to create any JS,CSS files for you new module. because the system will automatically create it for you.
@@ -13,6 +15,8 @@ Why you need to use this ?
 5. this system having a user management system. so you do not need to waste your time to develop a  separate user management to this system.
  
 so all you need to do is just login to the system as admin(username: admin, password:admin123) the system interface . and then,
+
+
 
 
 SYSTEM INTRODUCTION
@@ -30,14 +34,26 @@ Codeigniter version : 3.1.4
 
 *controller,model,view are auto generating. no need to configure.
 
+
+* use the system doc files to more information.
+
+
 ////********installation guide********////
 1.  extract the file
 2.  create a database with any name eg :- xxxxx in your sever
 3.  import the sql file("procurement_vx.sql") to your database
 4.  create a application folder in your server location and you can give any name to it(in my case it is "procurement_vx") and copy the files to that folder
-5.  change the database config data set with your sever config data set. and change the base url in the config file(in my case, i am using localhost so my file url = http://localhost/procurement_vx/).
+
+5.  change the database config data set with your sever config data set.
+	file location : >application >> config >> database.php 
+	
+And change the base url in the config file(in my case, i am using localhost so my file url = http://localhost/procurement_vx/).
+	file location : >application >> config >> config.php
+	
 6.  go to your browser and load the file (in my case, i am using localhost so my file url = http://localhost/procurement_vx/).
+	admin login : usernamse:admin , password:admin123
 7. give the full file permission to the dev user.
+
 
 
 //*** login ***//
